@@ -3,15 +3,14 @@
 package main
 
 import (
-	"bufio"
 	"fmt"
-	"os"
 	"strconv"
+	"utils"
 )
 
 func main() {
 	// TODO fix path/workspace/module
-	input, _ := readLines("./day01/input.txt")
+	input, _ := utils.ReadLines("./day01/input.txt", strconv.Atoi)
 	part1 := solvePart1(input)
 	part2 := solvePart2(input)
 	fmt.Printf("Part 1: %v\n", part1)
@@ -51,22 +50,4 @@ func threeLines(lines []int) []int {
 
 	}
 	return threeLines
-}
-
-func readLines(path string) ([]int, error) {
-	file, err := os.Open(path)
-	if err != nil {
-		return nil, err
-	}
-	defer file.Close()
-
-	var lines []int
-	scanner := bufio.NewScanner(file)
-
-	for scanner.Scan() {
-		value, _ := strconv.Atoi(scanner.Text())
-		lines = append(lines, value)
-	}
-
-	return lines, scanner.Err()
 }
