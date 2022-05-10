@@ -10,7 +10,8 @@ import (
 )
 
 func main() {
-	input, _ := readLines("input.txt")
+	// TODO fix path/workspace/module
+	input, _ := readLines("./day01/input.txt")
 	part1 := solvePart1(input)
 	part2 := solvePart2(input)
 	fmt.Printf("Part 1: %v\n", part1)
@@ -61,9 +62,11 @@ func readLines(path string) ([]int, error) {
 
 	var lines []int
 	scanner := bufio.NewScanner(file)
+
 	for scanner.Scan() {
 		value, _ := strconv.Atoi(scanner.Text())
 		lines = append(lines, value)
 	}
+
 	return lines, scanner.Err()
 }
