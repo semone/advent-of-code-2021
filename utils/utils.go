@@ -6,7 +6,7 @@ import (
 )
 
 type Line interface {
-	string | int
+	string | int | int64
 }
 
 func ReadLines[T Line](path string, fun func(string) (T, error)) ([]T, error) {
