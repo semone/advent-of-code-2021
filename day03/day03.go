@@ -28,10 +28,8 @@ func solvePart1(lines []string) int {
 }
 
 func solvePart2(lines []string) int {
-
 	oxygen, _ := strconv.ParseInt(calculateRatingPart2(lines, true), 2, 64)
 	scrubber, _ := strconv.ParseInt(calculateRatingPart2(lines, false), 2, 64)
-
 	return int(oxygen) * int(scrubber)
 }
 
