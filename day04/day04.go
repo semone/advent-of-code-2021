@@ -3,6 +3,7 @@ package main
 
 import (
 	"fmt"
+	"math"
 	"utils"
 )
 
@@ -62,7 +63,7 @@ func markBoard(board []int, number int) {
 }
 
 func isWinningBoard(board []int) bool {
-	var size = 5
+	var size = int(math.Sqrt(float64(len(board))))
 	return checkHorizontal(board, size) || checkVertical(board, size)
 }
 
